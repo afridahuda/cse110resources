@@ -1,0 +1,147 @@
+//==============Task 1===================
+import java.util.Scanner;
+public class Lab7Task1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("N = ");
+        int N = sc.nextInt();
+        int[] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            System.out.print("Enter a number: ");
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("\nThe elements of the array are:");
+        for (int i = 0; i < N; i++) {
+            System.out.println(i + ": " + arr[i]);
+        }
+        System.out.print("\nEnter another number: ");
+        int newNum = sc.nextInt();
+        int[] newArr = new int[N + 1];
+        for (int i = 0; i < N; i++) {
+            newArr[i] = arr[i];
+        }
+        newArr[N] = newNum;
+        System.out.println("\nAfter resizing the array:");
+        for (int i = 0; i < newArr.length; i++) {
+            System.out.print(newArr[i] + " ");
+        }
+        sc.close();
+    }
+}
+
+//==============Task 2===================
+import java.util.Scanner;
+public class Lab7Task2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the length of the array: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter a number: ");
+            arr[i] = sc.nextInt();
+        }
+        int[] reversed = new int[n];
+        for (int i = 0; i < n; i++) {
+            reversed[i] = arr[n - 1 - i];
+        }
+        System.out.println("\nReversed using a new array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(reversed[i] + " ");
+        }
+        for (int i = 0; i < n / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[n - 1 - i];
+            arr[n - 1 - i] = temp;
+        }
+        System.out.println("\n\nReversed the original array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        sc.close();
+    }
+}
+
+//==============Task 3===================
+public class Lab7Task3 {
+    public static void main(String[] args) {
+        int arr[] = {9, -5, 7, 9, -5, 5, 7};
+        System.out.println("Before removing duplicates:");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    arr[i] = 0;
+                }
+            }
+        }
+        System.out.println();
+        System.out.println("After replacing duplicates with 0:");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+//==============Task 4===================
+public class Lab7Task4 {
+    public static void main(String[] args) {
+        int arr[] = {23, 100, 23, 56, 100};
+        int temp[] = new int[arr.length];
+        int k = 0;
+        for (int i = 0; i < arr.length; i++) {
+            boolean flag = false;
+            for (int j = 0; j < k; j++) {
+                if (arr[i] == temp[j]) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                temp[k] = arr[i];
+                k++;
+            }
+        }
+        System.out.println("New array:");
+        for (int i = 0; i < k; i++) {
+            System.out.print(temp[i] + " ");
+        }
+    }
+}
+
+
+//==============Task 5===================
+import java.util.*;
+public class Lab7Task5BubbleSort {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("N = ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter a number: ");
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("\nOriginal Array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (arr[j] < arr[j + 1]) { // for descending
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        System.out.println("\nSorted Array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+        sc.close();
+    }
+}

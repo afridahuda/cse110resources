@@ -1,0 +1,134 @@
+public class Lab8Task01 {
+    // 1A
+    public static void evenChecker(int num) {
+        if (num % 2 == 0) {
+            System.out.println("Even!!");
+        } else {
+            System.out.println("Odd!!");
+        }
+    }
+
+    // 1B
+    public static boolean isEven(int num) {
+        return num % 2 == 0;
+    }
+
+    // 1C
+    public static boolean isPos(int num) {
+        return num > 0;
+    }
+
+    // 1D
+    public static void sequence(int n) {
+        if (isPos(n)) {
+            for (int i = 0; i <= n; i++) {
+                if (isEven(i)) {
+                    System.out.print(i + " ");
+                }
+            }
+        } else {
+            for (int i = n; i < 0; i++) {
+                if (!isEven(i)) { 
+                    System.out.print(i + " ");
+                }
+            }
+        }
+        System.out.println(); // for clean output line
+    }
+
+    public static void main(String[] args) {
+
+        evenChecker(10); 
+        evenChecker(17);  
+
+        System.out.println(isEven(10)); 
+        System.out.println(isEven(17)); 
+
+        System.out.println(isPos(-5));  
+        System.out.println(isPos(12));  
+
+        sequence(10);   
+        sequence(-7);   
+        sequence(7);    
+        sequence(-8);   
+    }
+}
+
+
+//====================================================
+
+
+public class Lab8Task02 {
+
+    // 2A
+    public static double circleArea(int radius) {
+        return Math.PI * radius * radius;
+    }
+
+    // 2B
+    public static double sphereVolume(double radius) {
+        return (4.0 / 3.0) * Math.PI * radius * radius * radius;
+    }
+
+    // 2C
+    public static void findSpace(int diameter, String type) {
+
+        if (type.equalsIgnoreCase("circle")) {
+            int radius = diameter / 2;
+            double area = circleArea(radius); // must call 2A
+            System.out.printf("%.4f\n", area);
+
+        } else if (type.equalsIgnoreCase("sphere")) {
+            double radius = diameter / 2.0;
+            double volume = sphereVolume(radius); // must call 2B
+            System.out.printf("%.4f\n", volume);
+
+        } else {
+            System.out.println("Wrong Parameter");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        double area = circleArea(5);
+        System.out.printf("%.4f\n", area);   
+
+        double volume = sphereVolume(5.0);
+        System.out.printf("%.4f\n", volume); 
+
+        findSpace(10, "circle"); 
+        findSpace(5, "sphere");   
+        findSpace(10, "square");  
+    }
+}
+
+
+//====================================================
+
+public class Lab8Task03 {
+    // 3A:
+    public static boolean isTriangle(int a, int b, int c) {
+        return (a + b > c) && (b + c > a) && (c + a > b);
+    }
+
+    // 3B: 
+    public static void triArea(int a, int b, int c) {
+
+        if (!isTriangle(a, b, c)) {
+            System.out.println("Can’t form triangle");
+        }
+
+        double s = (a + b + c) / 2.0;
+        double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+        System.out.printf("%.3f\n", area);
+    }
+
+    public static void main(String[] args) {
+        boolean res1 = isTriangle(7, 5, 10);
+        System.out.println(res1); 
+        boolean res2 = isTriangle(3, 2, 1);
+        System.out.println(res2); 
+        triArea(3, 2, 1);  
+        triArea(7, 5, 10); 
+    }
+}

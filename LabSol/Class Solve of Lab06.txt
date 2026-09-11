@@ -1,0 +1,165 @@
+public class Lab6Task1{
+  public static void main(String args[]){
+    String code = "9Abe-Coal-69UK-420i";
+    String new_code = "";
+    for (int i = 0; i < code.length(); i++){
+      char ch = code.charAt(i);
+      if (ch == 'A'|| ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U'){
+        new_code += (char)(ch + 32);
+      }
+      else if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+        new_code += (char)(ch - 32);
+      }
+      else{
+        new_code += ch;
+      }
+    }
+    System.out.println(new_code);
+  }
+}
+
+
+//##############################
+
+public class Lab6Task2{
+  public static void main(String args[]){
+    String prefix = "";
+    String str1 = "Car";
+    String str2 = "Flow";
+    int minLength;
+    if (str1.length() < str2.length()) {
+      minLength = str1.length();
+    }
+    else {
+      minLength = str2.length();
+    }
+    for (int i = 0; i < minLength; i++) {
+      if (str1.charAt(i) == str2.charAt(i)) {
+        prefix += str1.charAt(i);
+      }
+      else {
+        break;
+      }
+    }
+    if (prefix.length() > 0) {
+      System.out.println(prefix);
+    }
+    else {
+      System.out.println("There is no common prefix between the input strings.");
+    }
+  }
+}
+
+//####################################
+
+public class Lab6Task3{
+  public static void main(String args[]){
+    String text = "d3mgxHopperwasHere7bq";
+    String result = "";
+    int start = 5;
+    int end = 17;
+    for (int i = start; i <= end; i++) {
+      result += text.charAt(i);
+    }
+    System.out.println(result);
+  }
+}
+
+
+//####################################
+
+import java.util.Scanner;
+public class Lab6Task4 {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String text = "Codingggg-is-funnnn";
+    char sep = sc.next().charAt(0);
+    String word = "";
+    System.out.println("The words are:");
+    for (int i = 0; i < text.length(); i++) {
+      char ch = text.charAt(i);
+      if (ch != sep && i < text.length()-1){
+        boolean exist = false;
+        for (int j = 0; j < word.length(); j++) {
+          if(ch == word.charAt(j)){
+            exist = true;
+            break;
+          }
+        }
+        if(!exist){
+          word += ch;
+        }
+      }
+      else{
+        System.out.println(word);
+        word = "";
+      }
+    }
+  }
+}
+
+//####################################
+import java.util.Scanner;
+public class Lab6Task5{
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String text = "lzw_@mc_gnkkx_hr_rstbj";
+    String result = "";
+    for (int i = 0; i < text.length(); i++) {
+      char ch = text.charAt(i);
+      if (ch == '^') {
+        result += 'v';
+      } 
+      else if (ch == '3') {
+        result += 'e';
+      } 
+      else if (ch == '@') {
+        result += 'a';
+      } 
+      else if (ch == '_') {
+        result += ' ';
+      } 
+      else if (ch == 'z'){
+          result += 'a';
+        }
+      else {
+          result += (char)(ch + 1);
+        }
+    }
+    System.out.println("Hawkins: " + result);
+  }
+}
+
+//####################################
+public class Lab6Task6{
+    public static void main(String[] args) {
+        String markStr = "100";  
+        int mark = 0;
+        for (int i = 0; i < markStr.length(); i++) {
+            char ch = markStr.charAt(i);
+            int digit = ch - '0'; 
+            mark = mark * 10 + digit;
+        }
+        if (mark < 0 || mark > 100) {
+            System.out.println("Invalid Mark");
+        } 
+        else if (mark >= 90) {
+            System.out.println("A");
+        } 
+        else if (mark >= 80) {
+            System.out.println("A-");
+        } 
+        else if (mark >= 70) {
+            System.out.println("B");
+        } 
+        else if (mark >= 60) {
+            System.out.println("C");
+        } 
+        else if (mark >= 50) {
+            System.out.println("D");
+        } 
+        else {
+            System.out.println("F");
+        }
+    }
+}

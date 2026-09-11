@@ -1,0 +1,89 @@
+import java.util.Scanner;
+public class Lab09Task01{
+    // A
+    public static void oneToN(int i, int N) {
+        if (i > N) {   // base case
+            return;
+        }
+        System.out.print(i + " ");
+        oneToN(i + 1, N); 
+    }
+    // B
+    public static void nToOne(int i, int N) {
+        if (N < i) {   // base case
+            return;
+        }
+        System.out.print(N+" ");
+        nToOne(1, N-1);
+    }
+    // C
+    public static int recursiveSum(int i, int N) {
+        if (i > N) {   // base case
+            return 0;
+        }
+        return i + recursiveSum(i + 1, N); 
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        // A
+        oneToN(1, N);
+        System.out.println();
+        // B
+        nToOne(1, N);
+        System.out.println();
+        // C
+        System.out.println(recursiveSum(1, N));
+    }
+}
+
+public class Lab09Task02 {
+
+    public static void reverseDigits(int n) {
+        if (n == 0) {   // base case
+            return;
+        }
+        System.out.println(n % 10);  
+        reverseDigits(n / 10);
+    }
+    public static void main(String[] args) {
+        reverseDigits(12345);
+        System.out.println();
+        reverseDigits(649);
+        System.out.println();
+        reverseDigits(1000);
+    }
+}
+
+
+public class Lab09Task03 {
+    public static int sumDigits(int n) {
+        if (n == 0) {   // base case
+            return 0;
+        }
+        return (n % 10) + sumDigits(n / 10); 
+    }
+    public static void main(String[] args) {
+        int x = sumDigits(12345);
+        System.out.println(x);  
+        int y = sumDigits(649);
+        System.out.println(y);  
+    }
+}
+
+
+public class Lab09Task04 {
+    public static String reverse_string(String s, int idx) {
+      
+        if (idx == s.length()) {  // base case
+            return "";
+        }
+        return s.charAt(s.length()- 1 - idx) + reverse_string(s, idx + 1);
+    }
+    public static void main(String[] args) {
+        System.out.println(reverse_string("Hello", 0));
+        System.out.println(reverse_string("swan", 0));
+    }
+}
+
+
