@@ -1,0 +1,173 @@
+//TASK1
+
+import java.util.Scanner;
+public class TASK1{
+ public static void main(String[] args){
+   Scanner sc = new Scanner(System.in);
+   String s1 = sc.nextLine();
+   int max = 0;
+   for (int i = 0; i < s1.length() - 1; i++) {
+     char ch1 = s1.charAt(i);
+     char ch2 = s1.charAt(i + 1);
+     if (ch1 >= '0' && ch1 <= '9' && ch2 >= '0' && ch2 <= '9') {
+       int num = (ch1 - '0') * 10 + (ch2 - '0');
+       if (num > max) {
+         max = num;
+       }
+     }
+   }
+   System.out.println("2-Digit PIN: " + max);
+ }
+}
+
+//TASK2
+
+import java.util.Scanner;
+public class TASK2{
+  public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    String s1 = sc.nextLine();
+    String num = "";
+    String res = "";
+    int vowel = 0;
+    for (int i = s1.length()-1 ; i>= 0 ; i--){
+      char ch = s1.charAt(i);
+      if(ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' || ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ){
+        num = num + ch;
+      }
+    }
+    for(int i = 0; i < s1.length() ;i++){
+      char ch = s1.charAt(i);
+      if(ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' || ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ){
+        res += num.charAt(vowel);
+        vowel++;
+      }else{
+        res = res + ch;
+      }
+    }
+    System.out.println(res);
+  }
+}
+
+//TASK3
+
+import java.util.Scanner;
+public class TASK3{
+  public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Names of the spells:");
+    String ls = "";
+    while (true){
+      String s1 = sc.nextLine();
+      if (s1.equals("stop")){
+        break;
+      }
+      String spell = "";
+      for (int i = 0; i < s1.length(); i++){
+        char ch = s1.charAt(i);
+        if (ch >= 'a' && ch <= 'z'){
+          char upperCase = (char)(ch - 32);
+          spell = spell + upperCase;
+        }else if(ch >= 'A' && ch <= 'Z'){
+          spell = spell + ch;
+        }
+      }
+      if (spell.length() > ls.length()){
+        ls = spell;
+      }
+    }
+    int powLvl = 0;
+    for (int i = 0; i < ls.length(); i++){
+      powLvl = powLvl + (int) ls.charAt(i);
+    }
+    System.out.println("Largest Spell : " + ls);
+    System.out.println("Power Level : " + powLvl);
+  }
+}
+
+//TASK4 
+
+import java.util.Scanner;
+public class TASK4{
+  public static void main(String [] args){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Fan Message: ");
+    String mes = sc.nextLine();
+    int madridCount = 0;
+    int bayernCount = 0;
+    boolean closeCount = false;
+    String word = "";
+    mes += " ";
+    boolean dominatingVictory = false;
+    for(int i = 0; i < mes.length(); i++){
+      char ch = mes.charAt(i);
+      if(ch >= 'A' && ch <= 'Z'){
+        ch = (char)(ch + 32);
+      }
+      if(ch >= 'a' && ch <= 'z' ){
+      word += ch;
+      }      
+     else if(ch == ' '||ch == '!'||ch == '.'){        
+        if(word.equals("close")){
+          closeCount = true;
+        }
+        if(word.equals("destroy")){
+          dominatingVictory = true;
+        }
+        if(word.equals("madrid")){
+          madridCount ++;
+        }
+        else if(word.equals("bayern")){
+          bayernCount++;
+        }
+        word = "";
+      }
+    }
+    if(madridCount > bayernCount){
+      System.out.println("Madrid Supporter");
+    }
+    else if(bayernCount > madridCount){
+      System.out.println("Bayern Supporter");
+    }
+    else{
+      System.out.println("Neutral");
+    }
+    if(closeCount){
+      System.out.println("Fan expects a close match");
+    }
+    else if(dominatingVictory){
+      System.out.println("Fan expects a dominating victory!");
+    }
+    else{
+      System.out.println("Hard to read the fan sentiment");
+    }
+  }
+}
+
+
+//TASK5
+
+import java.util.Scanner;
+public class Task5{
+  public static void main(String [] args){
+    Scanner sc = new Scanner(System.in);
+    String s1 = sc.nextLine();
+    int charCount = 0;
+    int lastIndex = 0;
+    for(int i = s1.length() - 1; i >= 0; i--){
+      if(s1.charAt(i) != ' '){
+        lastIndex = i;
+        break;
+      }
+    }
+    for(int j = lastIndex; j >= 0; j--){
+      char ch = s1.charAt(j);
+      if(ch == ' '){
+        break;
+      }
+      charCount++;
+      
+    }
+    System.out.println(charCount);
+  }
+}

@@ -1,0 +1,84 @@
+//TASK1
+
+import java.util.Scanner;
+public class t1 {
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * factorial(-1);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number: ");
+        int n = sc.nextInt();
+        System.out.println(factorial(n));
+    }
+}
+
+//TASK2
+
+import java.util.Scanner;
+public class t2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the base: ");
+        int base = sc.nextInt();
+        System.out.print("Enter the exponent: ");
+        int exp = sc.nextInt();
+        System.out.println(expo(base,exp));
+    }
+    public static int expo(int base, int exp) {
+        if (exp == 0) {
+            return 1;
+        }
+        return base * expo(base, exp-1);
+    }
+}
+
+//TASK3
+
+import java.util.Scanner;
+public class t3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the length of the array: ");
+        int l = sc.nextInt();
+        int[] arr = new int[l];
+        System.out.print("Enter the digits:");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.print("Enter the index: ");
+        int index = sc.nextInt();
+        arrayprint(arr,index);
+    }
+    public static void arrayprint(int[] arr, int index) {
+        if (index == arr.length) {
+            return;
+        }
+        System.out.println(arr[index]);
+        arrayprint(arr,index+1);
+    }
+}
+
+//TASK4
+
+import java.util.Scanner;
+public class t4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number: ");
+        int n = sc.nextInt();
+        System.out.println(fibo(n));
+    }
+    public static int fibo(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        return fibo(n-1) + fibo(n-2);
+    }
+}

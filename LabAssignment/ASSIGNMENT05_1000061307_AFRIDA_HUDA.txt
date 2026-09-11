@@ -1,0 +1,196 @@
+//TASK1
+
+import java.util.Scanner;
+public class TASK1{
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter row: ");
+        int row = sc.nextInt();
+        int i = 1;
+        for ( i = 1; i <= row; i++){
+            for (int s = 1; s <= row-i; s++){
+                System.out.print(" ");
+            }
+            for(int j = 1; j <= (2*i)-1; j++){
+               System.out.print(j);
+            }
+            System.out.println();
+        }
+        for ( i = row-1; i >= 1; i--){
+            for (int s = 1; s <= row-i; s++){
+                System.out.print(" ");
+            }
+            for(int j = 1; j <= (2*i)-1; j++){
+               System.out.print(j);
+            }
+            System.out.println();
+        }
+    }
+}
+
+//TASK2
+
+import java.util.Scanner;
+public class TASK2{
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter row: ");
+        int row = sc.nextInt();
+        int i = 1;
+        for ( i = 1; i <= row; i++){
+            for (int s = 1; s <= row-i; s++){
+                System.out.print(" ");
+            }
+            for(int j=row-i+1;j<=row;j++ ){
+               if(i==1 || i==row || j==row || j==row-i+1){
+                   System.out.print(j);
+               }else{
+                   System.out.print(" ");
+               }
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+//TASK3
+
+import java.util.Scanner;
+public class TASK3{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter row: ");
+        int row = sc.nextInt();
+        for (int i = 1; i <= row; i++){
+            for (int s = 1; s <= row - i; s++){
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= 2 * i - 1; j++){
+                if(i==1 || i==row || j==2*i-1 || j==1){
+                    System.out.print(j);
+                }else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+
+//TASK4
+
+import java.util.Scanner;
+public class TASK4{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter row: ");
+        int row = sc.nextInt();
+        int i = 1;
+        for ( i = 1; i <= row; i++){
+            for (int s = 1; s <= row - i; s++){
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= 2 * i - 1; j++){
+                if(i==1 || j==(2*i)-1 || j==1){
+                    System.out.print(j);
+                }else{
+                    System.out.print(" ");
+                    }
+            }
+            System.out.println();
+        }
+        for ( i = row-1; i >= 1; i--){
+            for (int s = 1; s <= row - i; s++){
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= 2 * i - 1; j++){
+                if(i==1 || i==row || j==(2*i)-1 || j==1){
+                    System.out.print(j);
+                }
+                else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+//TASK5
+
+import java.util.Scanner;
+public class TASK5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter row: ");
+        int row = sc.nextInt();
+        for (int i = 1; i <= row; i++) {
+            for (int s = 1; s <= row - i; s++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+            }
+            for (int k = i - 1; k >= 1; k--) {
+                System.out.print(k);
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+//TASK6
+
+import java.util.Scanner;
+public class TASK6{
+	public static void main(String[] args){
+	Scanner sc = new Scanner(System.in);
+        System.out.println("Enter row: ");
+		int row = sc.nextInt();
+		for (int i = row; i >= 1; i--){
+			for (int s = 1; s <= row - i; s++){
+				System.out.print(" ");
+			}
+			for (int j = 1; j <= i; j++){
+				System.out.print(j);
+			}
+			for (int k = i - 1; k >= 1; k--){
+				System.out.print(k);
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+//TASK7
+
+import java.util.Scanner;
+public class TASK7{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter row: ");
+        int row = sc.nextInt();
+        for (int i = row; i >= 1; i -= 2){
+            for (int s = 1; s <= (row - i) / 2; s++){
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++){
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+        for (int i = 3; i <= row; i += 2){
+            for (int s = 1; s <= (row - i) / 2; s++){
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++){
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+    }
+}

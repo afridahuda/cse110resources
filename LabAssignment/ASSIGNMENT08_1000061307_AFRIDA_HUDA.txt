@@ -1,0 +1,170 @@
+//TASK 1
+
+import java.util.Scanner;
+public class task1 {
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isPerfect(int num) {
+        if (num <= 1) {
+            return false;
+        }
+
+        int total = 0;
+        int d = 1;
+
+        while (d <= num / 2) {
+            if (num % d == 0) {
+                total += d;
+            }
+            d++;
+        }
+        return total == num;
+    }
+
+    public static int special_sum(int n) {
+        int sum = 0;
+        int i = 1;
+
+        while (i <= n) {
+            if (isPrime(i) || isPerfect(i)) {
+                sum += i;
+            }
+            i++;
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        boolean check1 = isPrime(7);
+        System.out.println(check1);
+
+        boolean check2 = isPrime(15);
+        System.out.println(check2);
+
+        boolean check3 = isPerfect(6);
+        System.out.println(check3);
+
+        boolean check4 = isPerfect(33);
+        System.out.println(check4);
+
+        int result = special_sum(sc.nextInt());
+        System.out.println(result);
+    }
+}
+
+//TASK2
+
+public class task2 {
+    public static void showDots(int count) {
+        for (int i = 0; i < count; i++) {
+            System.out.print('.');
+        }
+    }
+
+    public static void showPalindrome(int count) {
+        for (int i = 1; i <= count; i++) {
+            System.out.print(i);
+        }
+        for (int i = count - 1; i >= 1; i--) {
+            System.out.print(i);
+        }
+    }
+
+    public static void showDiamond(int count) {
+        for (int row = 1; row <= count; row++) {
+            showDots(count - row);
+            showPalindrome(row);
+            showDots(count - row);
+            System.out.println();
+        }
+
+        for (int row = count - 1; row >= 1; row--) {
+            showDots(count - row);
+            showPalindrome(row);
+            showDots(count - row);
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        showDots(5);
+        System.out.println();
+        showDots(3);
+        System.out.println();
+
+        showPalindrome(5);
+        System.out.println();
+        showPalindrome(3);
+        System.out.println();
+
+        // sample method calls (2C)
+        System.out.println();
+        System.out.println();
+        showDiamond(5);
+        System.out.println();
+    }
+}
+
+//TASK3
+
+import java.util.Scanner;
+public class task3 {
+
+    public static double calcTax(int age, int salary) {
+        if (age < 18 || salary < 10000) {
+            return 0.0;
+        }
+
+        if (salary > 20000) {
+            return (double) salary * 0.14;
+        }
+
+        return (double) salary * 0.07;
+    }
+
+    public static void calcYearlyTax() {
+        Scanner sc = new Scanner(System.in);
+
+        int age = sc.nextInt();
+        double yearlyTax = 0;
+
+        int month = 1;
+        while (month <= 12) {
+            int monthlySalary = sc.nextInt();
+            double tax = calcTax(age, monthlySalary);
+            yearlyTax += tax;
+
+            if (tax == 0.0) {
+                System.out.println("Month" + month + " tax: " + 0);
+            } else {
+                System.out.println("Month" + month + " tax: " + tax);
+            }
+            month++;
+        }
+
+        System.out.println("Total Yearly Tax: " + yearlyTax);
+    }
+
+    public static void main(String[] args) {
+        double tax1 = calcTax(16, 20000);
+        System.out.println(tax1);
+
+        double tax2 = calcTax(20, 18000);
+        System.out.println(tax2);
+
+        calcYearlyTax();
+    }
+}
